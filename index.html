@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tekotree</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body class="bgGrey">
+    <header>
+
+        <nav class="topnav">
+            <hr class="spacer">
+            <img src="assets/images/logo.png" alt="brandLogo" />
+        </nav>
+    </header>
+    <main>
+        <section>
+
+            <div class="col left spaceBetween fillWidth" id="heroWrapper">
+                <div class="col">
+
+                    <h1 class="heroTitle">
+                        TEKO
+                        <br>
+                        WHAT<span class="heroTitle" style="color: var(--color-primary);">..</span>?
+                    </h1>
+                </div>
+                <div class="row center">
+
+                    <div class="col left">
+                        <div class="col">
+
+                            <p class="para textSecondary">
+                                Wanna know how we can help you with your business? Subscribe now to stay in touch. </p>
+                        </div>
+
+                        <form action="javascript:void(0);" method="post" class="form fillWidth" id="subscribeForm">
+                            <div class="form__group fillWidth">
+                                <input type="name" id="frmName" class="form__field fillWidth" placeholder="Your Name">
+                                <label for="frmName" class="form__label">Your Name</label>
+                                <span id="frmNameError" class="error-message"></span>
+                            </div>
+                            <div class="form__group fillWidth">
+                                <input type="email" id="frmEmail" class="form__field fillWidth" placeholder="Your Email">
+                                <label for="frmEmail" class="form__label">Your Email</label>
+                                <span id="frmEmailError" class="error-message"></span>
+                            </div>
+                            <button type="button" class="btnSolid btnText fillWidth textDeco"
+                                onclick="validateForm()">Subscribe now
+                                <img src="./assets/icons/cta-icon.svg" alt="arrow right icon">
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="snackbar" class="snackbar"></div>
+            </div>
+            <hr class="spacer">
+
+        </section>
+        <footer class="col center ftHeader textSecondary">
+            <hr class="spacer">
+            </hr>
+            <div class="row center fillWidth spaceBetween" id="footerBody">
+                <div>
+                    <img src="assets/images/logo-text.png" alt="brandLogoText" />
+                </div>
+                <div class="row center caption">© 2024 Tekotree. All Rights Reserved.</div>
+                <div class="row">
+                    <div class="row center">
+                        <a href="#">
+                            <ion-icon name="logo-facebook" class="iconSocials"></ion-icon>
+                        </a>
+                        <a href="#">
+                            <ion-icon name="logo-twitter" class="iconSocials"></ion-icon>
+                        </a>
+                        <a href="#">
+                            <ion-icon name="logo-linkedin" class="iconSocials"></ion-icon>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+            <hr class="spacer">
+            </hr>
+        </footer>
+    </main>
+    <script src="./script.js">
+    </script>
+</body>
+
+</html>
