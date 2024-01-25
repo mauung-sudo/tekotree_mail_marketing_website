@@ -35,40 +35,41 @@ function validateEmailInput() {
   }
 }
 
+
 function onSubmitForm() {
   validateEmailInput();
   validateNameInput();
-  
+
   if (frmNameError.innerHTML === "" && frmEmailError.innerHTML === "") {
-    console.log("success");
 
     console.log("form is submitted");
-     const apiUrl = "http://172.31.42.25:8000/subscribe";
+    const apiUrl = "http://mail.hugsports.space:8000/subscribe/";
 
-     const data = {
-       Email: frmEmailInput.value,
-       Username: frmNameInput.value,
-     };
+    const data = {
+      Email: frmEmailInput.value,
+      Username: frmNameInput.value,
+    };
 
-     fetch(apiUrl, {
-       method: "POST",
-       headers: {
-         "Content-Type": "application/json; charset=UTF-8",
-       },
-       body: JSON.stringify(data),
-     })
-       .then((response) => {
-         if (!response.ok) {
-           throw new Error(`HTTP error! Status: ${response.status}`);
-         }
-         return response.json();
-       })
-       .then((data) => {
-         console.log("Success:", data);
-         document.getElementById("subscribeForm").submit();
-       })
-       .catch((error) => {
-         console.error("Error:", error);
-       });
+    fetch(apiUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Success:", data);
+        frmNameInput.value = "";
+        frmEmailInput.value = "";
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   }
 }
