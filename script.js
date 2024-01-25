@@ -43,11 +43,11 @@ function onSubmitForm() {
     console.log("success");
 
     console.log("form is submitted");
-     const apiUrl = "http://23.22.111.99:8000/email";
+     const apiUrl = "http://172.31.42.25:8000/subscribe";
 
      const data = {
-       name: frmNameInput.value,
-       email: frmEmailInput.value,
+       Email: frmEmailInput.value,
+       Username: frmNameInput.value,
      };
 
      fetch(apiUrl, {
