@@ -177,10 +177,6 @@ p {
   font-family: "IBM Plex Sans", sans-serif;
 }
 
-.textField {
-  font-size: var(--font-size-base);
-}
-
 .overline {
   font-size: var(--font-size-xs);
 }
@@ -272,7 +268,7 @@ img[alt~="brandLogo"] {
 }
 
 img[alt~="brandLogoText"] {
-  height: 16px;
+  height: 80px;
 }
 
 /* Responsive CSS for extra small screens */
@@ -425,39 +421,6 @@ img[alt~="brandLogoText"] {
   max-width: 400px;
 }
 
-.textField {
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  align-self: stretch;
-  border-radius: 8px 8px 0px 0px;
-  border: 1px solid #828282;
-  color: white;
-  background: rgba(0, 0, 0, 0.25);
-  padding: 12px 24px;
-  max-width: 100%;
-}
-
-.textField:nth-child(2) {
-  border-radius: 0px;
-}
-
-.textField::placeholder {
-  color: white;
-}
-
-.textField:nth-child(2):hover {
-  border-radius: 0px;
-}
-.textField:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.textField:disabled {
-  background-color: gray;
-  color: rgb(101, 101, 101);
-}
-
 .btnSolid {
   display: flex;
   height: 70px;
@@ -465,7 +428,7 @@ img[alt~="brandLogoText"] {
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
-  border-radius: 0px;
+  border-radius: 2px;
   border: none;
   background: var(--color-primary);
   max-width: 100%;
@@ -478,6 +441,11 @@ img[alt~="brandLogoText"] {
   border: 2px solid white;
 }
 
+.btnSolid:focus {
+  outline: none;
+  border: 2px double orange;
+  background-color: var(--hover-primary);
+}
 /* layout overrides */
 
 .fillWidth {
@@ -649,7 +617,6 @@ img[alt~="brandLogoText"] {
   color: transparent;
 }
 
-
 .form__field:placeholder-shown ~ .form__label {
   font-size: var(--font-size-base);
   color: white;
@@ -659,16 +626,16 @@ img[alt~="brandLogoText"] {
 }
 
 label,
+
 .form__field:focus ~ .form__label {
   position: absolute;
-  top: 0px;
-    left: 24px;
+  top: 4px;
+  left: 24px;
 
   display: block;
   transition: 0.2s;
   font-size: var(--font-size-sm);
   color: white;
-  
 }
 
 .form__field:focus ~ .form__label {
@@ -676,19 +643,29 @@ label,
 }
 
 .form__field:focus {
-  border-bottom: 2px solid white;
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+  border-bottom: 2px solid green;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
+}
+
+.form__field:-webkit-autofill {
+  -webkit-text-fill-color: white;
+}
+
+.form__field:-webkit-autofill,
+.form__field:-webkit-autofill:hover,
+.form__field:-webkit-autofill:focus,
+.form__field:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 
-.error-message{
+.error-message {
   display: block;
   color: #e23636;
   font-size: var(--font-size-sm);
   text-align: left;
   margin-top: 4px;
   margin-left: 24px;
-  
+
   width: 100%;
-  
 }

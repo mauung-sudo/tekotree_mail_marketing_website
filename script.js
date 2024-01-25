@@ -1,42 +1,49 @@
-function validateForm() {
-  const name = document.getElementById("frmName").value;
-  const email = document.getElementById("frmEmail").value;
+const frmNameInput = document.getElementById("frmName");
+const frmEmailInput = document.getElementById("frmEmail");
 
-  function sanitizeInput(name) {
-    // Allow only alphanumeric characters for names
-    return name.replace(/[^a-zA-Z0-9]/g, "");
-  }
+frmNameInput.addEventListener("input", validateNameInput);
+frmEmailInput.addEventListener("input", validateEmailInput);
 
+function validateNameInput() {
+  const name = frmNameInput.value;
   const frmNameError = document.getElementById("frmNameError");
-  const frmEmailError = document.getElementById("frmEmailError");
 
-  frmNameError.innerHTML = ""; // Clear previous error messages
-  frmEmailError.innerHTML = "";
+  frmNameError.innerHTML = "";
 
   if (name === "") {
     frmNameError.innerHTML = "Name is empty";
-    document.getElementById("frmName").style.borderColor = "#e23636";
-  }
-
-  if (email === "") {
-    frmEmailError.innerHTML = "Email is empty";
-    document.getElementById("frmEmail").style.borderColor = "#e23636";
-  } else if (!validateEmail(email)) {
-    frmEmailError.innerHTML = "Invalid email format";
-    document.getElementById("frmEmail").style.borderColor = "#e23636";
-  }
-
-  if (frmNameError.innerHTML === "" && frmEmailError.innerHTML === "") {
-    // Submit the form (you might want to do an AJAX call here)
-    console.log(sanitizeInput(name));
-
-    //TODO: start writing here
-    console.log("form is submitted");
-    document.getElementById("subscribeForm").submit();
+    frmNameInput.style.borderColor = "#e23636";
+  } else {
+    frmNameInput.style.borderColor = "green";
   }
 }
 
-function validateEmail(email) {
+function validateEmailInput() {
+  const email = frmEmailInput.value;
+  const frmEmailError = document.getElementById("frmEmailError");
+  frmEmailError.innerHTML = "";
   const emailRegex = /\S+@\S+\.\S+/;
-  return emailRegex.test(email);
+
+  if (email === "") {
+    frmEmailError.innerHTML = "Email is empty";
+    frmEmailInput.style.borderColor = "#e23636";
+  } else if (!emailRegex.test(email)) {
+    frmEmailError.innerHTML = "Invalid email format";
+    frmEmailInput.style.borderColor = "#e23636";
+  } else {
+    frmEmailInput.style.borderColor = "green";
+  }
+}
+
+function onSubmitForm() {
+  validateEmailInput();
+  validateNameInput();
+  
+  if (frmNameError.innerHTML === "" && frmEmailError.innerHTML === "") {
+    console.log("success");
+
+    // TODO: Start writing here
+    console.log("form is submitted");
+    document.getElementById("subscribeForm").submit();
+  }
 }

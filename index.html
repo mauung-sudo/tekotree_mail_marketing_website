@@ -4,8 +4,20 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tekotree</title>
+    <title>Make change happen | Tekotree</title>
     <link rel="stylesheet" href="./styles.css" />
+      <!-- Favicon for all browsers -->
+    <link rel="icon" href="./assets/images/favIcon.png" type="image/x-icon">
+
+    <!-- Favicon for Apple Touch devices -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favIcon.png">
+
+    <!-- Favicon for Android Chrome -->
+    <link rel="manifest" href="./assets/images/favIcon.png">
+
+    <!-- Favicon for Safari Pinned Tab -->
+    <link rel="mask-icon" href="./assets/images/favIcon.png">
+
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
@@ -51,7 +63,7 @@
                                 <span id="frmEmailError" class="error-message"></span>
                             </div>
                             <button type="button" class="btnSolid btnText fillWidth textDeco"
-                                onclick="validateForm()">Subscribe now
+                                onclick="onSubmitForm()">Subscribe now
                                 <img src="./assets/icons/cta-icon.svg" alt="arrow right icon">
                             </button>
                         </form>
