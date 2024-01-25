@@ -29,6 +29,9 @@ function validateForm() {
   if (frmNameError.innerHTML === "" && frmEmailError.innerHTML === "") {
     // Submit the form (you might want to do an AJAX call here)
     console.log(sanitizeInput(name));
+
+    //TODO: start writing here
+    console.log("form is submitted");
     document.getElementById("subscribeForm").submit();
   }
 }
