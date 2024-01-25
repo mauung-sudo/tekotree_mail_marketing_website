@@ -268,7 +268,7 @@ img[alt~="brandLogo"] {
 }
 
 img[alt~="brandLogoText"] {
-  height: 80px;
+  height: 48px;
 }
 
 /* Responsive CSS for extra small screens */
@@ -443,7 +443,7 @@ img[alt~="brandLogoText"] {
 
 .btnSolid:focus {
   outline: none;
-  border: 2px double orange;
+  border: 2px double green;
   background-color: var(--hover-primary);
 }
 /* layout overrides */
@@ -566,31 +566,6 @@ img[alt~="brandLogoText"] {
   background-color: black transparent;
 }
 
-.snackbar {
-  visibility: hidden;
-  min-width: 250px;
-  margin-left: -125px;
-  background-color: white;
-  color: black;
-  text-align: center;
-  border-radius: 8px;
-  padding: 16px;
-  position: fixed;
-  z-index: 1;
-  left: 50%;
-  bottom: 30px;
-  font-size: var(--font-size-base);
-  font-weight: 700;
-  transition: visibility 0.3s, opacity 0.3s, transform 0.3s;
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.showSnackBar {
-  visibility: visible !important;
-  opacity: 1;
-  transform: translateY(0);
-}
 
 .form__group {
   position: relative;

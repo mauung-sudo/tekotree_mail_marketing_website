@@ -42,8 +42,33 @@ function onSubmitForm() {
   if (frmNameError.innerHTML === "" && frmEmailError.innerHTML === "") {
     console.log("success");
 
-    // TODO: Start writing here
     console.log("form is submitted");
-    document.getElementById("subscribeForm").submit();
+     const apiUrl = "http://23.22.111.99:8000/email";
+
+     const data = {
+       name: frmNameInput.value,
+       email: frmEmailInput.value,
+     };
+
+     fetch(apiUrl, {
+       method: "POST",
+       headers: {
+         "Content-Type": "application/json; charset=UTF-8",
+       },
+       body: JSON.stringify(data),
+     })
+       .then((response) => {
+         if (!response.ok) {
+           throw new Error(`HTTP error! Status: ${response.status}`);
+         }
+         return response.json();
+       })
+       .then((data) => {
+         console.log("Success:", data);
+         document.getElementById("subscribeForm").submit();
+       })
+       .catch((error) => {
+         console.error("Error:", error);
+       });
   }
 }
