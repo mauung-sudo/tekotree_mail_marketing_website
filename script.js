@@ -38,44 +38,6 @@ function validateEmailInput() {
   }
 }
 
-// function onSubmitForm() {
-//   validateEmailInput();
-//   validateNameInput();
-
-//   if (frmNameError.innerHTML === "" && frmEmailError.innerHTML === "") {
-//     console.log("form is submitted");
-//     const apiUrl = "http://mail.hugsports.space:8000/subscribe/";
-
-//     const data = {
-//       Email: frmEmailInput.value,
-//       Username: frmNameInput.value,
-//     };
-
-//     fetch(apiUrl, {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify(data),
-//     })
-//       .then((response) => {
-//         if (!response.ok) {
-//           throw new Error(`HTTP error! Status: ${response.status}`);
-//         }
-//         return response.json();
-//       })
-//       .then((responseData) => {
-//         console.log("Success:", responseData);
-//         frmNameInput.value = "";
-//         frmEmailInput.value = "";
-//         window.alert("Form submitted successfully!");
-//       })
-//       .catch((error) => {
-//         console.error("Error:", error);
-//       });
-//   }
-// }
-
 async function onSubmitForm() {
   validateEmailInput();
   validateNameInput();

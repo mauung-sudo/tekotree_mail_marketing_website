@@ -601,7 +601,6 @@ img[alt~="brandLogoText"] {
 }
 
 label,
-
 .form__field:focus ~ .form__label {
   position: absolute;
   top: 4px;
