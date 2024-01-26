@@ -1,3 +1,6 @@
+//disable right click event
+document.addEventListener("contextmenu", (event) => event.preventDefault());
+
 const frmNameInput = document.getElementById("frmName");
 const frmEmailInput = document.getElementById("frmEmail");
 
