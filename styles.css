@@ -650,14 +650,16 @@ label,
   bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #1cbe21;
+  background-color: hsl(122, 74%, 43%);
   color: white;
   padding: 16px;
   border-radius: 4px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: none; /* Initially hidden */
+  display: block; /* Initially hidden */
   transition: opacity 0.5s ease-in-out;
   font-size: var(--font-size-md);
+  width: max-content;
+  z-index: 1;
 
 }
 #successDialog.showDialog {
