@@ -38,13 +38,49 @@ function validateEmailInput() {
   }
 }
 
+// function onSubmitForm() {
+//   validateEmailInput();
+//   validateNameInput();
 
-function onSubmitForm() {
+//   if (frmNameError.innerHTML === "" && frmEmailError.innerHTML === "") {
+//     console.log("form is submitted");
+//     const apiUrl = "http://mail.hugsports.space:8000/subscribe/";
+
+//     const data = {
+//       Email: frmEmailInput.value,
+//       Username: frmNameInput.value,
+//     };
+
+//     fetch(apiUrl, {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(data),
+//     })
+//       .then((response) => {
+//         if (!response.ok) {
+//           throw new Error(`HTTP error! Status: ${response.status}`);
+//         }
+//         return response.json();
+//       })
+//       .then((responseData) => {
+//         console.log("Success:", responseData);
+//         frmNameInput.value = "";
+//         frmEmailInput.value = "";
+//         window.alert("Form submitted successfully!");
+//       })
+//       .catch((error) => {
+//         console.error("Error:", error);
+//       });
+//   }
+// }
+
+async function onSubmitForm() {
   validateEmailInput();
   validateNameInput();
 
   if (frmNameError.innerHTML === "" && frmEmailError.innerHTML === "") {
-
     console.log("form is submitted");
     const apiUrl = "http://mail.hugsports.space:8000/subscribe/";
 
@@ -53,26 +89,34 @@ function onSubmitForm() {
       Username: frmNameInput.value,
     };
 
-    fetch(apiUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log("Success:", data);
+    try {
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      } else {
+        const responseData = await response.json();
+        console.log("Success:", responseData);
+        const successDialog = document.getElementById("successDialog");
+        successDialog.classList.add("showDialog");
+
         frmNameInput.value = "";
         frmEmailInput.value = "";
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+        frmNameInput.style.borderColor = "white";
+        frmEmailInput.style.borderColor = "white";
+
+        setTimeout(() => {
+          successDialog.classList.remove("showDialog");
+        }, 4000);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   }
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,6 +27,14 @@
     </header>
     <main>
         <section>
+            <div id="successDialog">
+                    <div class="row center">
+                        <ion-icon name="checkmark-circle"></ion-icon>
+                        <p class="nomargin" >Form is submitted successfully!</p>
+                        
+                    </div>
+            </div>
+
             <div class="col left spaceBetween fillWidth" id="heroWrapper">
                 <div class="col">
                     <h1 class="heroTitle">
@@ -47,7 +56,8 @@
                                 <span id="frmNameError" class="error-message"></span>
                             </div>
                             <div class="form__group fillWidth">
-                                <input type="email" id="frmEmail" class="form__field fillWidth" placeholder="Your Email">
+                                <input type="email" id="frmEmail" class="form__field fillWidth"
+                                    placeholder="Your Email">
                                 <label for="frmEmail" class="form__label">Your Email</label>
                                 <span id="frmEmailError" class="error-message"></span>
                             </div>
