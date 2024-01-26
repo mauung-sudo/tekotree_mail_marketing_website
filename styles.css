@@ -655,7 +655,7 @@ label,
   padding: 16px;
   border-radius: 4px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: block; /* Initially hidden */
+  display: none; /* Initially hidden */
   transition: opacity 0.5s ease-in-out;
   font-size: var(--font-size-md);
   width: max-content;
